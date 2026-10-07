@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Leon Permanent CZ | Permanentní make-up Pardubice</title>
+
+<meta name="description" content="Permanentní make-up v Pardubicích. Přirozené obočí, rty, meziřasové linky, korekce a šetrné zesvětlení starého permanentního make-upu.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   ZÁKLAD
+===================================================== */
+
+:root{
+    --black:#171717;
+    --black-soft:#222222;
+    --cream:#f2eee7;
+    --cream-light:#f8f6f2;
+    --milk:#fcfbf8;
+    --line:rgba(23,23,23,.16);
+    --white:#fff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans", sans-serif;
+    background:var(--milk);
+    color:var(--black);
+    overflow-x:hidden;
+}
+
+img,
+video{
+    display:block;
+    width:100%;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+.serif{
+    font-family:"Italiana", serif;
+}
+
+.container{
+    width:min(1240px, calc(100% - 80px));
+    margin:auto;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar{
+    height:86px;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    background:rgba(248,246,242,.94);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.nav-inner{
+    width:min(1400px, calc(100% - 70px));
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-family:"Italiana",serif;
+    font-size:27px;
+    letter-spacing:.05em;
+    white-space:nowrap;
+}
+
+.logo span{
+    display:block;
+    font-family:"DM Sans",sans-serif;
+    text-transform:uppercase;
+    font-size:8px;
+    letter-spacing:.32em;
+    margin-top:2px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.nav-links a{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    position:relative;
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:1px;
+    background:var(--black);
+    transition:.3s;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-book{
+    border:1px solid var(--black);
+    padding:13px 19px;
+}
+
+.nav-book::after{
+    display:none;
+}
+
+.hamburger{
+    display:none;
+    border:0;
+    background:none;
+    width:32px;
+    height:24px;
+    cursor:pointer;
+    position:relative;
+}
+
+.hamburger span{
+    width:100%;
+    height:1px;
+    background:var(--black);
+    position:absolute;
+    left:0;
+    transition:.3s;
+}
+
+.hamburger span:first-child{
+    top:6px;
+}
+
+.hamburger span:last-child{
+    top:17px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    margin-top:86px;
+    height:calc(100dvh - 86px);
+    min-height:540px;
+    max-height:790px;
+
+    background:var(--black);
+    color:white;
+
+    display:grid;
+    grid-template-columns:44% 56%;
+}
+
+.hero-content{
+    padding:90px 7vw 70px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+}
+
+.eyebrow{
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.32em;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:"Italiana",serif;
+    font-weight:400;
+    font-size:clamp(68px,7.4vw,126px);
+    line-height:.82;
+    letter-spacing:-.04em;
+}
+
+.hero h1 span{
+    display:block;
+    font-family:"DM Sans",sans-serif;
+    font-size:.18em;
+    line-height:1.4;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    margin:24px 0 0 5px;
+    font-weight:400;
+}
+
+.hero-text{
+    max-width:480px;
+    font-size:15px;
+    line-height:1.8;
+    margin-top:38px;
+    color:#fff;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-flex;
+    min-height:48px;
+    padding:0 24px;
+    align-items:center;
+    justify-content:center;
+    border:1px solid white;
+    color:white;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    transition:.3s;
+}
+
+.btn-dark{
+    background:white;
+    color:var(--black);
+}
+
+.btn:hover{
+    background:white;
+    color:var(--black);
+}
+
+.btn-dark:hover{
+    background:transparent;
+    color:white;
+}
+
+.hero-photo{
+    position:relative;
+    overflow:hidden;
+    min-height:0;
+    height:100%;
+}
+
+.hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 25%;
+    display:block;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+    padding:145px 0 70px;
+    background:#fff;
+}
+
+.section-label{
+    text-transform:uppercase;
+    letter-spacing:.28em;
+    font-size:9px;
+    margin-bottom:20px;
+    opacity:.65;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:110px;
+    align-items:center;
+}
+
+.intro-title{
+    display:contents;
+}
+
+.intro-title h2{
+    grid-column:2;
+    grid-row:1;
+    font-family:"Italiana",serif;
+    font-weight:400;
+    font-size:clamp(55px,5vw,82px);
+    line-height:.95;
+    align-self:end;
+}
+
+.intro-title h2 em{
+    display:block;
+    font-weight:400;
+    font-size:.52em;
+    margin-top:13px;
+}
+
+.intro-photo{
+    grid-column:1;
+    grid-row:1 / span 2;
+    width:88%;
+    height:540px;
+    object-fit:cover;
+    object-position:center 20%;
+    margin-top:0;
+    border-radius:0 0 100px 0;
+}
+
+.intro-copy{
+    grid-column:2;
+    grid-row:2;
+    max-width:570px;
+    padding-top:0;
+    margin-top:-35px;
+    align-self:start;
+}
+
+.intro-copy p{
+    font-size:15px;
+    line-height:1.9;
+    margin-bottom:20px;
+    color:var(--black);
+}
+
+.instagram-link{
+    display:inline-block;
+    margin-top:15px;
+    padding-bottom:5px;
+    border-bottom:1px solid var(--black);
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+}
+
+/* OTEVÍRACÍ VIDEO */
+
+.story-video-modal{
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    background:rgba(0,0,0,.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s ease, visibility .3s ease;
+}
+
+.story-video-modal.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.story-video-box{
+    position:relative;
+    width:min(520px, 90vw);
+    max-height:85vh;
+}
+
+.story-video-box video{
+    width:100%;
+    max-height:85vh;
+    object-fit:contain;
+    background:#000;
+}
+
+.story-video-close{
+    position:absolute;
+    right:-5px;
+    top:-48px;
+    border:0;
+    background:transparent;
+    color:#fff;
+    font-size:38px;
+    line-height:1;
+    cursor:pointer;
+}
+
+
+/* =====================================================
+   O MNĚ / VIDEO
+===================================================== */
+
+.about-media{
+    background:var(--cream);
+    padding:0 0 140px;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    align-items:stretch;
+}
+
+.about-image,
+.about-video{
+    min-height:720px;
+    position:relative;
+    overflow:hidden;
+    background:#ddd;
+}
+
+.about-image img,
+.about-video video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.video-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:none;
+}
+
+.play{
+    width:88px;
+    height:88px;
+    border-radius:50%;
+    background:rgba(255,255,255,.88);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    padding-left:4px;
+}
+
+.media-caption{
+    position:absolute;
+    left:28px;
+    bottom:25px;
+    background:rgba(248,246,242,.92);
+    padding:12px 16px;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+}
+
+
+/* =====================================================
+   PARALLAX / PRŮŘEZ
+===================================================== */
+
+.photo-window{
+    height:390px;
+    background-image:url("Nataliia1.jpg");
+    background-size:cover;
+    background-position:center 45%;
+    background-attachment:fixed;
+    position:relative;
+}
+
+.photo-window::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.17);
+}
+
+.photo-window-text{
+    position:absolute;
+    z-index:2;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+}
+
+.photo-window-text p{
+    font-family:"Italiana",serif;
+    font-size:clamp(35px,5vw,75px);
+}
+
+
+/* =====================================================
+   VÝSLEDKY
+===================================================== */
+
+.results{
+    padding:145px 0;
+}
+
+.section-heading{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:25px;
+    margin-bottom:70px;
+}
+
+.section-heading h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(55px,7vw,100px);
+    font-weight:400;
+    line-height:.9;
+}
+
+.section-heading p{
+    max-width:650px;
+    line-height:1.8;
+    font-size:14px;
+    color:var(--black);
+}
+
+.results-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-auto-rows:220px;
+    grid-auto-flow:dense;
+    gap:10px;
+}
+
+.result{
+    overflow:hidden;
+    position:relative;
+    background:#eee;
+}
+
+.result img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .7s ease;
+}
+
+.result:hover img{
+    transform:scale(1.025);
+}
+
+.result-large{
+    grid-column:span 2;
+    grid-row:span 2;
+}
+
+.result-tall{
+    grid-row:span 2;
+}
+
+.result-label{
+    position:absolute;
+    bottom:14px;
+    left:14px;
+    background:rgba(248,246,242,.92);
+    padding:10px 13px;
+    font-size:9px;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+}
+
+
+/* =====================================================
+   SLUŽBY
+===================================================== */
+
+.services{
+    padding:145px 0;
+    background:var(--black);
+    color:white;
+}
+
+.services .section-label{
+    color:#cfcfcf;
+}
+
+.services-heading{
+    max-width:850px;
+    margin:0 auto 90px;
+    text-align:center;
+}
+
+.services-heading h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(55px,7vw,105px);
+    font-weight:400;
+    line-height:.95;
+}
+
+.service{
+    display:grid;
+    grid-template-columns:80px 1fr 1.1fr 180px;
+    gap:35px;
+    padding:38px 0;
+    border-top:1px solid rgba(255,255,255,.2);
+    align-items:start;
+}
+
+.service:last-child{
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.service-number{
+    font-family:"Italiana",serif;
+    font-size:22px;
+    opacity:.55;
+}
+
+.service-name h3{
+    font-family:"Italiana",serif;
+    font-size:36px;
+    font-weight:400;
+}
+
+.service-name small{
+    display:block;
+    margin-top:10px;
+    opacity:.55;
+    font-size:10px;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+.service-description{
+    color:#c9c9c9;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.service-description strong{
+    color:white;
+    font-weight:400;
+}
+
+.service-price{
+    text-align:right;
+}
+
+.service-price strong{
+    display:block;
+    font-family:"Italiana",serif;
+    font-size:30px;
+    font-weight:400;
+}
+
+.service-price span{
+    display:block;
+    font-size:10px;
+    color:#aaa;
+    margin-top:8px;
+}
+
+.price-toggle{
+    margin-top:22px;
+    padding:0 0 5px;
+    border:0;
+    border-bottom:1px solid rgba(255,255,255,.45);
+    background:transparent;
+    color:#fff;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    cursor:pointer;
+}
+
+.price-toggle b{
+    margin-left:8px;
+    font-size:14px;
+    font-weight:300;
+}
+
+
+/* =====================================================
+   CENÍK DETAIL
+===================================================== */
+
+.price-detail{
+    padding:120px 0;
+    background:var(--cream);
+}
+
+.price-columns{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:70px;
+}
+
+.price-column h3{
+    font-family:"Italiana",serif;
+    font-size:42px;
+    font-weight:400;
+    margin-bottom:35px;
+}
+
+.price-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    font-size:13px;
+}
+
+.price-row strong{
+    white-space:nowrap;
+    font-weight:500;
+}
+
+
+/* =====================================================
+   DETAIL FOTO
+===================================================== */
+
+.detail-feature{
+    display:grid;
+    grid-template-columns:45% 55%;
+    height:450px;
+}
+
+.detail-photo{
+    overflow:hidden;
+}
+
+.detail-photo img{
+    height:100%;
+    object-fit:cover;
+}
+
+.detail-copy{
+    background:var(--cream-light);
+    padding:50px 8vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.detail-copy h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(55px,6vw,90px);
+    font-weight:400;
+    line-height:.95;
+    margin-bottom:35px;
+}
+
+.detail-copy p{
+    max-width:470px;
+    line-height:1.9;
+    font-size:14px;
+    color:var(--black);
+}
+
+
+/* =====================================================
+   STUDIO
+===================================================== */
+
+.studio{
+    padding:70px 0 145px;
+    background:#f2f0ec;
+}
+
+.studio-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:90px;
+    align-items:center;
+}
+
+.studio-head{
+    max-width:570px;
+    margin-bottom:0;
+}
+
+.studio-head h2{
+    font-family:"Italiana",serif;
+    font-weight:400;
+    font-size:clamp(55px,5vw,82px);
+    line-height:.95;
+}
+
+.studio-head p{
+    max-width:570px;
+    margin-top:35px;
+    line-height:1.9;
+    font-size:15px;
+    color:var(--black);
+}
+
+.studio-photo{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    object-position:center;
+    justify-self:end;
+    border-radius:0 0 0 100px;
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+    padding:145px 0;
+    background:var(--cream);
+    position:relative;
+}
+
+.faq-grid{
+    display:grid;
+    grid-template-columns:.7fr 1.3fr;
+    gap:100px;
+}
+
+.faq-title{
+    position:sticky;
+    top:130px;
+    align-self:start;
+}
+
+.faq-title h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(65px,7vw,100px);
+    font-weight:400;
+}
+
+.faq-title p{
+    max-width:330px;
+    margin-top:25px;
+    line-height:1.8;
+    font-size:13px;
+}
+
+.faq-item{
+    border-top:1px solid var(--line);
+}
+
+.faq-item:last-child{
+    border-bottom:1px solid var(--line);
+}
+
+.faq-question{
+    width:100%;
+    border:0;
+    background:none;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    text-align:left;
+    padding:25px 0;
+    cursor:default;
+    font-size:14px;
+}
+
+.faq-plus{
+    font-family:"Italiana",serif;
+    font-size:24px;
+}
+
+.faq-scroll{
+    position:absolute;
+    left:50%;
+    bottom:45px;
+    transform:translateX(-50%);
+}
+
+.faq-scroll span{
+    font-family:"Italiana",serif;
+    font-size:34px;
+    line-height:1;
+}
+
+
+/* =====================================================
+   KONTRAINDIKACE
+===================================================== */
+
+.safety{
+    padding:145px 0;
+    background:var(--black);
+    color:white;
+}
+
+.safety-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:100px;
+}
+
+.safety h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(55px,7vw,100px);
+    font-weight:400;
+    line-height:.95;
+}
+
+.safety-copy{
+    padding-top:20px;
+}
+
+.safety-copy > p{
+    color:#c8c8c8;
+    line-height:1.9;
+    margin-bottom:35px;
+    font-size:14px;
+}
+
+.safety-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 30px;
+}
+
+.safety-list div{
+    border-top:1px solid rgba(255,255,255,.2);
+    padding:16px 0;
+    font-size:12px;
+    color:#ddd;
+}
+
+
+/* =====================================================
+   REFERENCE
+===================================================== */
+
+.reviews{
+    padding:145px 0;
+    background:#fff;
+}
+
+.reviews h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(55px,7vw,100px);
+    font-weight:400;
+    margin-bottom:70px;
+    text-align:center;
+}
+
+.reviews .section-label{
+    text-align:center;
+}
+
+.reviews{
+    padding:145px 0;
+    background:#fff;
+    overflow:hidden;
+}
+
+.reviews .section-label{
+    text-align:center;
+}
+
+.reviews h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(55px,7vw,100px);
+    font-weight:400;
+    margin-bottom:70px;
+    text-align:center;
+}
+
+.reviews-slider{
+    width:100%;
+    overflow:hidden;
+}
+
+.reviews-track{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    width:max-content;
+    animation:reviews-scroll 150s linear infinite;
+}
+
+.review-slide{
+    flex:0 0 330px;
+    width:330px;
+    height:420px;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.review-slide img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+}
+
+.reviews-slider:hover .reviews-track{
+    animation-play-state:paused;
+}
+
+@keyframes reviews-scroll{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(calc(-50% - 9px));
+    }
+}
+
+
+/* =====================================================
+   KONTAKT
+===================================================== */
+
+.contact{
+    display:grid;
+    grid-template-columns:48% 52%;
+    min-height:620px;
+    background:var(--cream);
+}
+
+.contact-photo{
+    overflow:hidden;
+}
+
+.contact-photo img{
+    height:100%;
+    object-fit:cover;
+}
+
+.contact-content{
+    padding:60px 7vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.contact-content h2{
+    font-family:"Italiana",serif;
+    font-size:clamp(50px,5vw,76px);
+    font-weight:400;
+    line-height:.92;
+}
+
+.contact-content > p{
+    margin:30px 0 40px;
+    max-width:470px;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.contact-info{
+    border-top:1px solid var(--line);
+}
+
+.contact-row{
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:12px;
+}
+
+.contact-row span:first-child{
+    opacity:1;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:9px;
+}
+
+.contact .btn{
+    align-self:flex-start;
+    margin-top:35px;
+    background:var(--black);
+    color:#fff;
+    border-color:var(--black);
+}
+
+.contact .btn:hover{
+    background:var(--black);
+    color:#fff;
+    border-color:var(--black);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    background:var(--black);
+    color:white;
+    padding:32px 5vw;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    font-size:9px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+footer a{
+    opacity:.65;
+}
+
+.footer-credit{
+    opacity:.65;
+}
+
+
+/* =====================================================
+   MOBIL
+===================================================== */
+
+@media(max-width:900px){
+
+    .container{
+        width:calc(100% - 36px);
+    }
+
+    .navbar{
+        height:68px;
+    }
+
+    .nav-inner{
+        width:calc(100% - 36px);
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .nav-links{
+        position:fixed;
+        top:68px;
+        left:0;
+        width:100%;
+        height:calc(100svh - 68px);
+        background:var(--cream-light);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:55px 30px;
+        gap:27px;
+        transform:translateX(100%);
+        transition:.35s ease;
+    }
+
+    .nav-links.open{
+        transform:translateX(0);
+    }
+
+    .nav-links a{
+        font-family:"Italiana",serif;
+        text-transform:none;
+        letter-spacing:0;
+        font-size:32px;
+    }
+
+    .nav-book{
+        padding:0;
+        border:0;
+    }
+
+    .hamburger{
+        display:block;
+    }
+
+    .hero{
+        margin-top:68px;
+        min-height:auto;
+        grid-template-columns:1fr;
+    }
+
+    .hero-photo{
+        order:1;
+        min-height:62svh;
+    }
+
+    .hero-photo img{
+        object-position:center 20%;
+    }
+
+    .hero-content{
+        order:2;
+        padding:50px 18px 65px;
+    }
+
+    .hero h1{
+        font-size:clamp(58px,20vw,88px);
+    }
+
+    .hero h1 span{
+        font-size:12px;
+        margin-top:18px;
+    }
+
+    .hero-text{
+        margin-top:25px;
+        font-size:14px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .intro{
+        padding:90px 0;
+    }
+
+    .intro-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .intro-title h2{
+        font-size:55px;
+    }
+
+    .intro-copy{
+        padding-top:0;
+    }
+
+    .about-media{
+        padding-bottom:90px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .about-image,
+    .about-video{
+        min-height:530px;
+    }
+
+    .photo-window{
+        height:300px;
+        background-attachment:scroll;
+        background-position:center;
+    }
+
+    .photo-window-text{
+        padding:30px;
+    }
+
+    .results{
+        padding:90px 0;
+    }
+
+    .section-heading{
+        display:block;
+        margin-bottom:45px;
+    }
+
+    .section-heading h2{
+        font-size:60px;
+        margin-bottom:25px;
+    }
+
+    .results-grid{
+        grid-template-columns:1fr 1fr;
+        grid-auto-rows:210px;
+        gap:6px;
+    }
+
+    .result-large{
+        grid-column:span 2;
+        grid-row:span 1;
+    }
+
+    .result-tall{
+        grid-row:span 2;
+    }
+
+    .services{
+        padding:90px 0;
+    }
+
+    .services-heading{
+        margin-bottom:50px;
+    }
+
+    .services-heading h2{
+        font-size:60px;
+    }
+
+    .service{
+        grid-template-columns:35px 1fr;
+        gap:15px;
+        padding:30px 0;
+    }
+
+    .service-description{
+        grid-column:2;
+    }
+
+    .service-price{
+        grid-column:2;
+        text-align:left;
+    }
+
+    .service-name h3{
+        font-size:30px;
+    }
+
+    .price-detail{
+        padding:85px 0;
+    }
+
+    .price-columns{
+        grid-template-columns:1fr;
+        gap:65px;
+    }
+
+    .detail-feature{
+        grid-template-columns:1fr;
+        min-height:auto;
+    }
+
+    .detail-photo{
+        height:520px;
+    }
+
+    .detail-copy{
+        padding:80px 18px;
+    }
+
+    .detail-copy h2{
+        font-size:60px;
+    }
+
+    .studio{
+        padding:90px 0;
+    }
+
+    .studio-head h2{
+        font-size:60px;
+    }
+
+    .studio-grid{
+        grid-template-columns:1fr;
+        gap:7px;
+    }
+
+    .studio-grid img,
+    .studio-grid img:last-child{
+        height:430px;
+        margin:0;
+    }
+
+    .faq{
+        padding:90px 0;
+    }
+
+    .faq-grid{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .faq-title{
+        position:static;
+    }
+
+    .faq-title h2{
+        font-size:65px;
+    }
+
+    .faq-question{
+        font-size:13px;
+    }
+
+    .safety{
+        padding:90px 0;
+    }
+
+    .safety-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .safety h2{
+        font-size:60px;
+    }
+
+    .safety-list{
+        grid-template-columns:1fr;
+    }
+
+    .reviews{
+        padding:90px 0;
+    }
+
+    .reviews h2{
+        font-size:60px;
+        margin-bottom:45px;
+    }
+
+    .review-grid{
+        grid-template-columns:1fr;
+    }
+
+    .review{
+        min-height:220px;
+        padding:30px;
+    }
+
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+    .contact-photo{
+        height:520px;
+    }
+
+    .contact-content{
+        padding:80px 18px;
+    }
+
+    .contact-content h2{
+        font-size:60px;
+    }
+
+    footer{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ===================================================
+     NAVBAR
+=================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="#uvod" class="logo">
+            LEON
+            <span>Permanent CZ</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#uvod">Domů</a></li> 
+            <li><a href="#o-mne">O mně</a></li>
+            <li><a href="#vysledky">Výsledky</a></li>
+            <li><a href="#sluzby">Služby & ceník</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+
+            <li>
+                <a href="#" class="nav-book" onclick="return false;">
+    Rezervace online
+</a>
+            </li>
+
+        </ul>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- ===================================================
+     HERO
+=================================================== -->
+
+<section class="hero" id="uvod">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Permanentní make-up · Pardubice
+        </div>
+
+        <h1>
+            Leon
+            <span>Permanent make-up</span>
+        </h1>
+
+        <p class="hero-text">
+            Permanentní make-up s důrazem na přirozenost,
+            preciznost a respekt k Vašim přirozeným rysům.
+            Výsledek, ve kterém se budete cítit stále jako Vy.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="#kontakt" class="btn btn-dark">
+                Rezervovat termín
+            </a>
+
+            <a href="#vysledky" class="btn">
+                Prohlédnout výsledky
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-photo">
+        <img src="Nataliia7.jpg" alt="Leon Permanent CZ">
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     O MNĚ
+=================================================== -->
+
+<section class="intro" id="o-mne">
+
+    <div class="container">
+
+        <div class="intro-grid">
+
+            <div class="intro-title">
+
+                <h2>
+                    Od záchranky
+                    <em>k permanentnímu make-upu.</em>
+                </h2>
+
+<img src="Nataliia26.jpg" alt="Nataliia Leon Permanent" class="intro-photo">
+
+            </div>
+
+            <div class="intro-copy">
+
+                <p>
+                    Jmenuji se Nataliia a za značkou Leon Permanent stojí
+                    moje vášeň pro detail, estetiku a práci, která má smysl.
+                    Moje profesní cesta přitom nezačala v beauty světě.
+                    Dříve jsem pracovala u záchranné služby, kde jsou
+                    preciznost, zodpovědnost a čistota naprostým základem.
+                </p>
+
+                <p>
+                    Stejné hodnoty si dnes přináším do své práce s permanentním
+                    make-upem. Ke každé klientce přistupuji individuálně.
+                    Nechci měnit tvář – chci podtrhnout to, co je na ní
+                    přirozeně krásné.
+                </p>
+
+                <p>
+                    Mým cílem je, abyste se během celého procesu cítila
+                    bezpečně, věděla přesně, co Vás čeká, a odcházela
+                    s výsledkem, který bude přirozenou součástí Vás.
+                </p>
+
+                <a href="#" class="instagram-link" id="openStoryVideo">
+    Přehrát můj příběh ▶
+</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- OTEVÍRACÍ VIDEO O MNĚ -->
+<div class="story-video-modal" id="storyVideoModal">
+
+    <div class="story-video-box">
+
+        <button class="story-video-close" id="closeStoryVideo" type="button">
+            ×
+        </button>
+
+        <video id="storyVideo" controls playsinline>
+            <source src="o mně1.mov" type="video/quicktime">
+        </video>
+
+    </div>
+
+</div>
+
+<!-- ===================================================
+     HYGIENA
+=================================================== -->
+
+<section class="studio">
+
+    <div class="container">
+
+        <div class="studio-layout">
+
+            <div class="studio-head">
+
+                <h2>
+                    Hygiena není detail.
+                    <br>Je to základ.
+                </h2>
+
+                <p>
+                    Bezpečí, hygiena a pečlivě připravené prostředí jsou
+                    pro mě samozřejmostí. Chci, abyste se u mě cítila
+                    příjemně od první konzultace až po poslední kontrolu
+                    zahojeného výsledku.
+                </p>
+
+            </div>
+
+            <img
+                src="Nataliia5.jpg"
+                alt="Hygiena a bezpečí při permanentním make-upu"
+                class="studio-photo"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     PRŮŘEZ
+=================================================== -->
+
+<section class="photo-window">
+
+    <div class="photo-window-text">
+        <p>Preciznost. Hygiena. Elegance.</p>
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     VÝSLEDKY
+=================================================== -->
+
+<section class="results" id="vysledky">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+    Moje práce
+</h2>
+
+            </div>
+
+            <p>
+                Každá tvář je jiná. Proto nehledám jeden univerzální
+                tvar ani odstín. Permanentní make-up navrhuji tak,
+                aby respektoval přirozené rysy a působil harmonicky
+                nejen bezprostředně po aplikaci, ale především po zahojení.
+            </p>
+
+        </div>
+
+
+        <div class="results-grid">
+
+            <div class="result result-tall">
+                <img src="předapo10.jpg" alt="Permanentní make-up obočí před a po">
+                <span class="result-label">Obočí · před & po</span>
+            </div>
+
+            <div class="result result-tall">
+                <img src="předapo13.jpg" alt="Permanentní make-up rtů">
+                <span class="result-label">Rty</span>
+            </div>
+
+            <div class="result">
+                <img src="předapo14.jpg" alt="Permanentní make-up obočí">
+                <span class="result-label">Obočí</span>
+            </div>
+
+            <div class="result">
+                <img src="předapo12.jpg" alt="Permanentní make-up rtů">
+                <span class="result-label">Rty</span>
+            </div>
+
+            <div class="result result-large">
+                <img src="předapo15.jpg" alt="Permanentní make-up obočí před a po">
+                <span class="result-label">Zahojený výsledek</span>
+            </div>
+
+            <div class="result result-tall">
+                <img src="předapo9.jpg" alt="Permanentní make-up před a po">
+                <span class="result-label">Před & po</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     SLUŽBY
+=================================================== -->
+
+<section class="services" id="sluzby">
+
+    <div class="container">
+
+        <div class="services-heading">
+
+            <h2>
+    Permanentní make-up
+</h2>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">01</div>
+
+            <div class="service-name">
+                <h3>Obočí</h3>
+                <small>Pudrový efekt</small>
+            </div>
+
+            <div class="service-description">
+                Pro upravený tvar, jemné zvýraznění a přirozeně
+                působící obočí bez každodenního dokreslování.
+                <br><br>
+                <strong>
+                    Součástí je konzultace, návrh tvaru,
+                    výběr odstínu a doporučení následné péče.
+                </strong>
+            </div>
+
+            <div class="service-price">
+    <strong>5 000 Kč</strong>
+    <span>nová aplikace</span>
+
+    <button class="price-toggle" type="button">
+        Celý ceník <b>+</b>
+    </button>
+</div>
+</div>
+
+
+        <div class="service">
+
+            <div class="service-number">02</div>
+
+            <div class="service-name">
+                <h3>Rty</h3>
+                <small>Akvarelový efekt</small>
+            </div>
+
+            <div class="service-description">
+                Jemné sjednocení odstínu, zvýraznění kontury
+                a opticky svěžejší rty bez tvrdého efektu rtěnky.
+                <br><br>
+                <strong>
+                    Konzultace, návrh odstínu, aplikace
+                    a doporučení domácí péče.
+                </strong>
+            </div>
+
+            <div class="service-price">
+    <strong>5 000 Kč</strong>
+    <span>nová aplikace</span>
+
+    <button class="price-toggle" type="button">
+        Celý ceník <b>+</b>
+    </button>
+</div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">03</div>
+
+            <div class="service-name">
+                <h3>Oči</h3>
+                <small>Meziřasová linka</small>
+            </div>
+
+            <div class="service-description">
+                Decentní zvýraznění linie řas, díky kterému
+                oči působí výrazněji, aniž by výsledkem byla
+                nápadná klasická oční linka.
+            </div>
+
+            <div class="service-price">
+    <strong>3 200 Kč</strong>
+    <span>nová aplikace</span>
+
+    <button class="price-toggle" type="button">
+        Celý ceník <b>+</b>
+    </button>
+</div>
+
+        </div>
+
+
+        <div class="service">
+
+            <div class="service-number">04</div>
+
+            <div class="service-name">
+                <h3>Korekce</h3>
+                <small>Zesvětlení starého PMU</small>
+            </div>
+
+            <div class="service-description">
+                Šetrné zesvětlení nevhodného, příliš výrazného
+                nebo starého permanentního make-upu removerem.
+                Další postup vždy volíme individuálně podle
+                původního pigmentu a stavu pokožky.
+            </div>
+
+            <div class="service-price">
+                <strong>1 100 Kč</strong>
+                <span>zesvětlení removerem</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     DETAIL
+=================================================== -->
+
+<section class="detail-feature">
+
+    <div class="detail-photo">
+        <img src="předapo14.jpg" alt="Permanentní make-up">
+    </div>
+
+    <div class="detail-copy">
+
+        <div class="section-label">
+            Přirozený výsledek
+        </div>
+
+<h2>
+    Stále Vy.
+    <br>Jen bez ranní rutiny.
+</h2>
+
+        <p>
+            Dobře provedený permanentní make-up nemusí být na první
+            pohled poznat. Jeho úkolem je zvýraznit přirozené rysy,
+            sjednotit a doplnit to, co běžně každé ráno upravujete
+            tužkou, rtěnkou nebo linkou.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================
+     FAQ
+=================================================== -->
+
+<section class="faq" id="faq">
+
+    <div class="container">
+
+        <div class="faq-grid">
+
+            <div class="faq-title">
+
+                <div class="section-label">
+                    Často se ptáte
+                </div>
+
+                <h2>FAQ</h2>
+
+                <p>
+                    Permanentní make-up je rozhodnutí, u kterého je
+                    naprosto v pořádku mít spoustu otázek.
+                    Tady najdete odpovědi na ty nejčastější.
+                </p>
+
+            </div>
+
+
+            <div class="faq-list">
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Bolí permanentní make-up?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Jak se správně připravit před procedurou?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Jak vypadá a probíhá hojení den za dnem?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Jak dlouho permanentní make-up vydrží?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Budou barvy časem modré nebo nepřirozené?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Mám sklony k oparu. Mohu jít na permanent rtů?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Jak se o permanent starat bezprostředně po zákroku?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Proč je nutná korekce a kdy se provádí?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Jak funguje zesvětlení starého permanentu?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Bude výsledek po zahojení přirozený?</span>
+                        <span class="faq-plus">+</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<div class="faq-scroll">
+            <span>↓</span>
+        </div>
+
+</section>
+
+
+<!-- ===================================================
+     KONTRAINDIKACE
+=================================================== -->
+
+<section class="safety">
+
+    <div class="container">
+
+        <div class="safety-grid">
+
+            <div>
+
+                <div class="section-label">
+                    Bezpečnost
+                </div>
+
+                <h2>
+                    Kdy zákrok
+                    není vhodný.
+                </h2>
+
+            </div>
+
+
+            <div class="safety-copy">
+
+                <p>
+                    Permanentní make-up je zásah do pokožky, a proto
+                    existují situace, kdy je potřeba zákrok odložit
+                    nebo jeho vhodnost předem konzultovat.
+                </p>
+
+                <div class="safety-list">
+
+                    <div>Těhotenství</div>
+                    <div>Kojení</div>
+                    <div>Akutní infekční onemocnění</div>
+                    <div>Horečka a celková nevolnost</div>
+                    <div>Aktivní kožní onemocnění v místě aplikace</div>
+                    <div>Poruchy srážlivosti krve</div>
+                    <div>Některé druhy medikace</div>
+                    <div>Čerstvé estetické zákroky v dané oblasti</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     REFERENCE
+=================================================== -->
+
+<section class="reviews">
+
+    <div class="container">
+
+        <div class="section-label">
+            Reference
+        </div>
+
+        <h2>Slova mých klientek</h2>
+
+        <div class="reviews-slider">
+
+    <div class="reviews-track">
+
+        <div class="review-slide">
+            <img src="recenze17.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze18.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze19.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze3.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze4.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze5.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze7.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze8.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze9.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze10.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze11.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze12.PNG" alt="Recenze klientky Leon Permanent">
+        </div>
+
+
+        <!-- DUPLIKACE PRO PLYNULOU NEKONEČNOU SMYČKU -->
+
+        <div class="review-slide">
+            <img src="recenze17.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze18.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze19.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze3.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze4.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze5.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze7.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze8.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze9.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze10.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze11.PNG" alt="">
+        </div>
+
+        <div class="review-slide">
+            <img src="recenze12.PNG" alt="">
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================
+     KONTAKT
+=================================================== -->
+
+<section class="contact" id="kontakt">
+
+    <div class="contact-photo">
+        <img src="Nataliia3.jpg" alt="Leon Permanent CZ Pardubice">
+    </div>
+
+    <div class="contact-content">
+
+        <div class="section-label">
+            Rezervace
+        </div>
+
+        <h2>
+    Rezervujte si termín
+</h2>
+
+        <p>
+            Máte otázku nebo si chcete rezervovat termín?
+            Ozvěte se mi a společně vybereme službu a postup,
+            který bude vhodný právě pro Vás.
+        </p>
+
+        <div class="contact-info">
+
+            <div class="contact-row">
+                <span>Studio</span>
+                <span>Havlíčkova 841, Pardubice</span>
+            </div>
+
+            <div class="contact-row">
+                <span>Telefon</span>
+                <span>+420 602 731 860</span>
+            </div>
+
+            <div class="contact-row">
+                <span>E-mail</span>
+                <span>sladkovanataliia@gmail.com</span>
+            </div>
+
+            <div class="contact-row">
+                <span>Instagram</span>
+                <span>@leon_permanent</span>
+            </div>
+
+<div class="contact-row">
+    <span>Facebook</span>
+    <span>Leon Permanent CZ</span>
+</div>
+
+        </div>
+
+        <a href="#" class="btn btn-dark" onclick="return false;">
+    Rezervovat online
+</a>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ===================================================
+     FOOTER
+=================================================== -->
+
+<footer>
+
+    <span>
+        © 2026 Leon Permanent CZ
+    </span>
+
+    <span class="footer-credit">
+    Designed by ZajaIT
+</span>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   MOBILNÍ MENU
+===================================================== */
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+    });
+
+});
+
+
+/* =====================================================
+   VIDEO – PRO PRVNÍ NÁHLED
+===================================================== */
+
+const videoBox = document.querySelector(".about-video");
+const video = document.querySelector(".about-video video");
+const videoOverlay = document.querySelector(".video-overlay");
+
+if(videoBox && video){
+
+    videoBox.addEventListener("click", () => {
+
+        if(video.paused){
+            video.play();
+            video.controls = true;
+
+            if(videoOverlay){
+                videoOverlay.style.display = "none";
+            }
+
+        }else{
+            video.pause();
+        }
+
+    });
+
+}
+
+/* =====================================================
+   OTEVÍRACÍ VIDEO O MNĚ
+===================================================== */
+
+const openStoryVideo = document.getElementById("openStoryVideo");
+const storyVideoModal = document.getElementById("storyVideoModal");
+const closeStoryVideo = document.getElementById("closeStoryVideo");
+const storyVideo = document.getElementById("storyVideo");
+
+openStoryVideo.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    storyVideoModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    storyVideo.play().catch(() => {});
+});
+
+function closeStoryVideoModal(){
+    storyVideo.pause();
+    storyVideo.currentTime = 0;
+
+    storyVideoModal.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+closeStoryVideo.addEventListener("click", closeStoryVideoModal);
+
+storyVideoModal.addEventListener("click", (e) => {
+    if(e.target === storyVideoModal){
+        closeStoryVideoModal();
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape" && storyVideoModal.classList.contains("active")){
+        closeStoryVideoModal();
+    }
+});
+
+</script>
+
+</body>
+</html>
