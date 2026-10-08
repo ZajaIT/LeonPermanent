@@ -1424,14 +1424,22 @@ footer a{
     min-height:0;
 }
 
-    .detail-photo{
+   .detail-photo{
     height:280px;
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
 }
 
 .detail-photo img{
     width:100%;
-    height:100%;
+    height:calc(100% + 160px);
     object-fit:cover;
+    position:absolute;
+    top:-80px;
+    left:0;
+    transform:translate3d(0, var(--detail-shift, 0px), 0);
+    will-change:transform;
 }
 
     .detail-copy{
@@ -2487,20 +2495,25 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-   /* MOBILNÍ PARALLAX */
+   /* MOBILNÍ PARALLAX – OBA PRŮŘEZY */
 
 const photoWindow = document.querySelector(".photo-window");
+const detailPhoto = document.querySelector(".detail-photo");
 
-if (photoWindow) {
-    let ticking = false;
+let parallaxTicking = false;
 
-    function updatePhotoParallax() {
-        if (window.innerWidth > 900) {
-            photoWindow.style.removeProperty("--photo-shift");
-            return;
-        }
+function updateMobileParallax() {
 
-        const rect = photoWindow.getBoundingClientRect();
+    if (window.innerWidth > 900) {
+        photoWindow?.style.removeProperty("--photo-shift");
+        detailPhoto?.style.removeProperty("--detail-shift");
+        return;
+    }
+
+    function movePhoto(element, property) {
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
         const viewportCenter = window.innerHeight / 2;
 
@@ -2509,28 +2522,28 @@ if (photoWindow) {
             Math.min(70, (viewportCenter - center) * 0.15)
         );
 
-        photoWindow.style.setProperty(
-            "--photo-shift",
-            `${shift}px`
-        );
+        element.style.setProperty(property, `${shift}px`);
     }
 
-    function requestPhotoUpdate() {
-        if (ticking) return;
-
-        ticking = true;
-
-        requestAnimationFrame(() => {
-            updatePhotoParallax();
-            ticking = false;
-        });
-    }
-
-    window.addEventListener("scroll", requestPhotoUpdate, { passive: true });
-    window.addEventListener("resize", requestPhotoUpdate);
-
-    updatePhotoParallax();
+    movePhoto(photoWindow, "--photo-shift");
+    movePhoto(detailPhoto, "--detail-shift");
 }
+
+function requestMobileParallax() {
+    if (parallaxTicking) return;
+
+    parallaxTicking = true;
+
+    requestAnimationFrame(() => {
+        updateMobileParallax();
+        parallaxTicking = false;
+    });
+}
+
+window.addEventListener("scroll", requestMobileParallax, { passive:true });
+window.addEventListener("resize", requestMobileParallax);
+
+updateMobileParallax();
 
 </script>
 
