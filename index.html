@@ -1575,6 +1575,26 @@ footer a{
         align-items:center;
     }
 
+   .reviews-slider{
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-x pan-y;
+}
+
+.reviews-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.reviews-track{
+    animation:none;
+}
+
+.review-slide{
+    flex-shrink:0;
+}
+
 }
 
 </style>
@@ -2547,6 +2567,64 @@ window.addEventListener("scroll", requestMobileParallax, { passive:true });
 window.addEventListener("resize", requestMobileParallax);
 
 updateMobileParallax();
+
+   /* MOBILNÍ RECENZE – AUTOMATICKY + SWIPE */
+
+const reviewsSlider = document.querySelector(".reviews-slider");
+const reviewsTrack = document.querySelector(".reviews-track");
+
+if (reviewsSlider && reviewsTrack) {
+
+    let reviewsTouching = false;
+    let reviewsResumeAt = 0;
+    let reviewsLastTime = 0;
+
+    const reviewsHalfWidth = () => reviewsTrack.scrollWidth / 2;
+
+    function moveReviews(time) {
+
+        if (window.innerWidth <= 900) {
+
+            if (
+                !reviewsTouching &&
+                time >= reviewsResumeAt &&
+                reviewsLastTime
+            ) {
+                const delta = Math.min(time - reviewsLastTime, 50);
+
+                reviewsSlider.scrollLeft += delta * 0.035;
+            }
+
+            const half = reviewsHalfWidth();
+
+            if (half > 0 && reviewsSlider.scrollLeft >= half) {
+                reviewsSlider.scrollLeft -= half;
+            }
+
+        } else {
+            reviewsSlider.scrollLeft = 0;
+        }
+
+        reviewsLastTime = time;
+        requestAnimationFrame(moveReviews);
+    }
+
+    reviewsSlider.addEventListener("touchstart", () => {
+        reviewsTouching = true;
+    }, { passive:true });
+
+    reviewsSlider.addEventListener("touchend", () => {
+        reviewsTouching = false;
+        reviewsResumeAt = performance.now() + 2000;
+    }, { passive:true });
+
+    reviewsSlider.addEventListener("touchcancel", () => {
+        reviewsTouching = false;
+        reviewsResumeAt = performance.now() + 2000;
+    }, { passive:true });
+
+    requestAnimationFrame(moveReviews);
+}
 
 </script>
 
