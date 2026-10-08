@@ -1580,7 +1580,8 @@ footer a{
     overflow-y:hidden;
     scrollbar-width:none;
     -webkit-overflow-scrolling:touch;
-    touch-action:pan-x pan-y;
+    touch-action:pan-y;
+    overscroll-behavior-x:contain;
 }
 
 .reviews-slider::-webkit-scrollbar{
@@ -2568,62 +2569,99 @@ window.addEventListener("resize", requestMobileParallax);
 
 updateMobileParallax();
 
-   /* MOBILNÍ RECENZE – AUTOMATICKY + SWIPE */
+   /* MOBILNÍ RECENZE – JEDNA RECENZE NA SWIPE */
 
 const reviewsSlider = document.querySelector(".reviews-slider");
 const reviewsTrack = document.querySelector(".reviews-track");
 
 if (reviewsSlider && reviewsTrack) {
 
-    let reviewsTouching = false;
-    let reviewsResumeAt = 0;
-    let reviewsLastTime = 0;
+    const reviews = reviewsTrack.querySelectorAll(".review-slide");
+    const reviewsCount = reviews.length / 2;
 
-    const reviewsHalfWidth = () => reviewsTrack.scrollWidth / 2;
+    let currentReview = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchDeltaX = 0;
+    let isTouching = false;
+    let resumeAt = 0;
+    let lastAutoTime = 0;
 
-    function moveReviews(time) {
+    function reviewStep() {
+        return reviews[1].offsetLeft - reviews[0].offsetLeft;
+    }
+
+    function showReview(index, smooth = true) {
+        currentReview = (index + reviewsCount) % reviewsCount;
+
+        reviewsSlider.scrollTo({
+            left: currentReview * reviewStep(),
+            behavior: smooth ? "smooth" : "instant"
+        });
+    }
+
+    reviewsSlider.addEventListener("touchstart", (e) => {
+        if (window.innerWidth > 900) return;
+
+        isTouching = true;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchDeltaX = 0;
+    }, { passive:true });
+
+    reviewsSlider.addEventListener("touchmove", (e) => {
+        if (!isTouching || window.innerWidth > 900) return;
+
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+
+        if (Math.abs(dx) > Math.abs(dy)) {
+            e.preventDefault();
+            touchDeltaX = dx;
+        }
+    }, { passive:false });
+
+    reviewsSlider.addEventListener("touchend", () => {
+        if (!isTouching || window.innerWidth > 900) return;
+
+        isTouching = false;
+
+        if (touchDeltaX < -35) {
+            showReview(currentReview + 1);
+        } else if (touchDeltaX > 35) {
+            showReview(currentReview - 1);
+        }
+
+        resumeAt = performance.now() + 2000;
+    });
+
+    reviewsSlider.addEventListener("touchcancel", () => {
+        isTouching = false;
+    });
+
+    function autoReviews(time) {
 
         if (window.innerWidth <= 900) {
 
-            if (
-                !reviewsTouching &&
-                time >= reviewsResumeAt &&
-                reviewsLastTime
-            ) {
-                const delta = Math.min(time - reviewsLastTime, 50);
+            if (!isTouching && time >= resumeAt) {
 
-                reviewsSlider.scrollLeft += delta * 0.035;
-            }
+                if (time - lastAutoTime > 4500) {
+                    showReview(currentReview + 1);
+                    lastAutoTime = time;
+                }
 
-            const half = reviewsHalfWidth();
-
-            if (half > 0 && reviewsSlider.scrollLeft >= half) {
-                reviewsSlider.scrollLeft -= half;
+            } else {
+                lastAutoTime = time;
             }
 
         } else {
-            reviewsSlider.scrollLeft = 0;
+            lastAutoTime = time;
         }
 
-        reviewsLastTime = time;
-        requestAnimationFrame(moveReviews);
+        requestAnimationFrame(autoReviews);
     }
 
-    reviewsSlider.addEventListener("touchstart", () => {
-        reviewsTouching = true;
-    }, { passive:true });
-
-    reviewsSlider.addEventListener("touchend", () => {
-        reviewsTouching = false;
-        reviewsResumeAt = performance.now() + 2000;
-    }, { passive:true });
-
-    reviewsSlider.addEventListener("touchcancel", () => {
-        reviewsTouching = false;
-        reviewsResumeAt = performance.now() + 2000;
-    }, { passive:true });
-
-    requestAnimationFrame(moveReviews);
+    requestAnimationFrame(autoReviews);
 }
 
 </script>
