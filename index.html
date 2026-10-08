@@ -1147,6 +1147,10 @@ footer a{
 
 @media(max-width:900px){
 
+   body.menu-open{
+    overflow:hidden;
+}
+
     .container{
         width:calc(100% - 36px);
     }
@@ -2306,12 +2310,14 @@ const navLinks = document.getElementById("navLinks");
 
 hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("open");
+    document.body.classList.toggle("menu-open");
 });
 
 document.querySelectorAll(".nav-links a").forEach(link => {
 
     link.addEventListener("click", () => {
         navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
     });
 
 });
