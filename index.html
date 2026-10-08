@@ -2592,13 +2592,57 @@ if (reviewsSlider && reviewsTrack) {
     }
 
     function showReview(index, smooth = true) {
-        currentReview = (index + reviewsCount) % reviewsCount;
+
+    const step = reviewStep();
+
+    if (index >= reviewsCount) {
+
+        // Nejdřív plynule přejedeme na duplikát první recenze
+        currentReview = 0;
 
         reviewsSlider.scrollTo({
-            left: currentReview * reviewStep(),
-            behavior: smooth ? "smooth" : "instant"
+            left: reviewsCount * step,
+            behavior:"smooth"
         });
+
+        // Po dokončení přesunu neviditelně skočíme na začátek
+        setTimeout(() => {
+            reviewsSlider.scrollTo({
+                left:0,
+                behavior:"instant"
+            });
+        }, 700);
+
+        return;
     }
+
+    if (index < 0) {
+
+        // Neviditelný přesun na duplikát poslední recenze
+        reviewsSlider.scrollTo({
+            left:reviewsCount * step,
+            behavior:"instant"
+        });
+
+        currentReview = reviewsCount - 1;
+
+        requestAnimationFrame(() => {
+            reviewsSlider.scrollTo({
+                left:currentReview * step,
+                behavior:"smooth"
+            });
+        });
+
+        return;
+    }
+
+    currentReview = index;
+
+    reviewsSlider.scrollTo({
+        left:currentReview * step,
+        behavior:smooth ? "smooth" : "instant"
+    });
+}
 
     reviewsSlider.addEventListener("touchstart", (e) => {
         if (window.innerWidth > 900) return;
@@ -2645,7 +2689,7 @@ if (reviewsSlider && reviewsTrack) {
 
             if (!isTouching && time >= resumeAt) {
 
-                if (time - lastAutoTime > 4500) {
+                if (time - lastAutoTime > 2000) {
                     showReview(currentReview + 1);
                     lastAutoTime = time;
                 }
