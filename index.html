@@ -936,7 +936,7 @@ button{
     gap:30px;
     text-align:left;
     padding:25px 0;
-    cursor:default;
+    cursor:pointer;
     font-size:14px;
 }
 
@@ -959,6 +959,14 @@ button{
     font-family:"Italiana",serif;
     font-size:34px;
     line-height:1;
+}
+
+   .faq-plus{
+    transition:transform .3s ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-plus{
+    transform:rotate(45deg);
 }
 
 
@@ -2924,6 +2932,22 @@ document.querySelectorAll(".price-toggle").forEach(button => {
             top: newTop - oldTop,
             behavior: "instant"
         });
+
+    });
+
+});
+
+   /* FAQ – ROZBALOVÁNÍ */
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+    button.setAttribute("aria-expanded", "false");
+
+    button.addEventListener("click", () => {
+
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+
+        button.setAttribute("aria-expanded", String(!isOpen));
 
     });
 
