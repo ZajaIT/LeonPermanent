@@ -2846,30 +2846,41 @@ if (reviewsSlider && reviewsTrack) {
     requestAnimationFrame(autoReviews);
 }
 
-  document.querySelectorAll(".price-toggle").forEach(button => {
+document.querySelectorAll(".price-toggle").forEach(button => {
 
     button.addEventListener("click", () => {
 
-        const pricelist = button.closest(".service").querySelector(".service-pricelist");
+        const service = button.closest(".service");
+        const pricelist = service.querySelector(".service-pricelist");
         const wasOpen = pricelist.classList.contains("open");
 
-        // Zavřeme všechny otevřené ceníky
+
+        const oldTop = service.getBoundingClientRect().top;
+
+
         document.querySelectorAll(".service-pricelist").forEach(list => {
             list.classList.remove("open");
         });
 
-        // Vrátíme všechna tlačítka do výchozího stavu
+
         document.querySelectorAll(".price-toggle").forEach(btn => {
             btn.setAttribute("aria-expanded", "false");
             btn.innerHTML = "Celý ceník <b>+</b>";
         });
 
-        // Otevřeme vybraný ceník, pokud nebyl otevřený
+
         if (!wasOpen) {
             pricelist.classList.add("open");
             button.setAttribute("aria-expanded", "true");
             button.innerHTML = "Zavřít ceník <b>−</b>";
         }
+
+
+        const newTop = service.getBoundingClientRect().top;
+        window.scrollBy({
+            top: newTop - oldTop,
+            behavior: "instant"
+        });
 
     });
 
