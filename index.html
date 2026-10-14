@@ -693,6 +693,40 @@ button{
     font-size:14px;
     font-weight:300;
 }
+   .service-pricelist{
+    display:none;
+    grid-column:2 / -1;
+    width:100%;
+    padding:25px 0 10px;
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+.service-pricelist.open{
+    display:block;
+}
+
+.service-pricelist > div{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:30px;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.service-pricelist span{
+    font-size:13px;
+    line-height:1.6;
+    color:#d0d0d0;
+}
+
+.service-pricelist strong{
+    font-family:"Italiana",serif;
+    font-size:23px;
+    font-weight:400;
+    white-space:nowrap;
+    color:#fff;
+}
 
 
 /* =====================================================
@@ -1417,6 +1451,23 @@ footer a{
         gap:65px;
     }
 
+   .service-pricelist{
+        grid-column:2;
+        padding-top:20px;
+    }
+
+    .service-pricelist > div{
+        gap:12px;
+    }
+
+    .service-pricelist span{
+        font-size:12px;
+    }
+
+    .service-pricelist strong{
+        font-size:19px;
+    }
+
    .detail-feature{
     display:flex;
     flex-direction:column-reverse;
@@ -1974,9 +2025,17 @@ footer a{
     <strong>5 000 Kč</strong>
     <span>nová aplikace</span>
 
-    <button class="price-toggle" type="button">
-        Celý ceník <b>+</b>
-    </button>
+    <button class="price-toggle" type="button" aria-expanded="false">
+    Celý ceník <b>+</b>
+</button>
+
+<div class="service-pricelist">
+    <div><span>Nová aplikace (včetně opravy po jiném stylistovi)</span><strong>5 000 Kč</strong></div>
+    <div><span>Korekce (1 až 2,5 měsíce)</span><strong>2 000 Kč</strong></div>
+    <div><span>Refresh do 1 roku</span><strong>3 000 Kč</strong></div>
+    <div><span>Refresh do 2 let</span><strong>3 500 Kč</strong></div>
+    <div><span>Zesvětlení permanentního make-upu removerem</span><strong>1 100 Kč</strong></div>
+</div>
 </div>
 </div>
 
@@ -2004,9 +2063,16 @@ footer a{
     <strong>5 000 Kč</strong>
     <span>nová aplikace</span>
 
-    <button class="price-toggle" type="button">
-        Celý ceník <b>+</b>
-    </button>
+    <button class="price-toggle" type="button" aria-expanded="false">
+    Celý ceník <b>+</b>
+</button>
+
+<div class="service-pricelist">
+    <div><span>Nová aplikace (včetně opravy po jiném stylistovi)</span><strong>5 000 Kč</strong></div>
+    <div><span>Korekce (1 až 2,5 měsíce)</span><strong>2 000 Kč</strong></div>
+    <div><span>Refresh do 1 roku</span><strong>3 000 Kč</strong></div>
+    <div><span>Refresh do 2 let</span><strong>3 500 Kč</strong></div>
+</div>
 </div>
 
         </div>
@@ -2031,9 +2097,15 @@ footer a{
     <strong>3 200 Kč</strong>
     <span>nová aplikace</span>
 
-    <button class="price-toggle" type="button">
-        Celý ceník <b>+</b>
-    </button>
+    <button class="price-toggle" type="button" aria-expanded="false">
+    Celý ceník <b>+</b>
+</button>
+
+<div class="service-pricelist">
+    <div><span>Meziřasová linka</span><strong>3 200 Kč</strong></div>
+    <div><span>Korekce meziřasové linky</span><strong>1 600 Kč</strong></div>
+    <div><span>Refresh meziřasové linky (do 2 let)</span><strong>2 500 Kč</strong></div>
+</div>
 </div>
 
         </div>
@@ -2773,6 +2845,23 @@ if (reviewsSlider && reviewsTrack) {
 
     requestAnimationFrame(autoReviews);
 }
+
+   document.querySelectorAll(".price-toggle").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const pricelist = button.nextElementSibling;
+        const isOpen = pricelist.classList.toggle("open");
+
+        button.setAttribute("aria-expanded", isOpen);
+
+        button.innerHTML = isOpen
+            ? "Zavřít ceník <b>−</b>"
+            : "Celý ceník <b>+</b>";
+
+    });
+
+});
 
 </script>
 
