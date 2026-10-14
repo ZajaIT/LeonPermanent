@@ -2999,7 +2999,26 @@ document.querySelectorAll(".faq-question").forEach(button => {
 
         const isOpen = button.getAttribute("aria-expanded") === "true";
 
-        button.setAttribute("aria-expanded", String(!isOpen));
+
+        const positionBefore = button.getBoundingClientRect().top;
+
+
+        document.querySelectorAll(".faq-question").forEach(otherButton => {
+            otherButton.setAttribute("aria-expanded", "false");
+        });
+
+
+        if (!isOpen) {
+            button.setAttribute("aria-expanded", "true");
+        }
+
+
+        const positionAfter = button.getBoundingClientRect().top;
+
+        window.scrollBy({
+            top: positionAfter - positionBefore,
+            behavior: "instant"
+        });
 
     });
 
