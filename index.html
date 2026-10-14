@@ -1230,6 +1230,193 @@ footer a{
     display:none;
 }
 
+   /* ================================
+   PŘÍPRAVA A PÉČE
+================================ */
+
+.preparation-section {
+    background: #f8f6f2;
+    padding: 110px 25px;
+}
+
+.preparation-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.preparation-label {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.preparation-container h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 55px;
+}
+
+.preparation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.preparation-card {
+    background: #fff;
+    border: 1px solid #e8e5df;
+    padding: 40px;
+    min-height: 220px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    color: #171717;
+    font-family: "Montserrat", sans-serif;
+    transition: border-color .3s ease;
+}
+
+.preparation-card:hover {
+    border-color: #171717;
+}
+
+.preparation-card-title {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.preparation-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 12px;
+    color: #777;
+}
+
+.preparation-arrow {
+    font-size: 24px;
+    color: #171717;
+}
+
+
+/* ================================
+   VYSKAKOVACÍ OKNA
+================================ */
+
+.preparation-modal[hidden] {
+    display: none;
+}
+
+.preparation-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.preparation-modal-content {
+    position: relative;
+    background: #fff;
+    color: #171717;
+    width: 100%;
+    max-width: 850px;
+    max-height: 85vh;
+    max-height: 85dvh;
+    overflow-y: auto;
+    padding: 55px;
+}
+
+.preparation-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    font-weight: 300;
+    color: #171717;
+    cursor: pointer;
+}
+
+.preparation-modal-content h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.4;
+    padding-right: 30px;
+    margin-bottom: 35px;
+}
+
+.preparation-modal-body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.preparation-modal-body p {
+    margin-bottom: 15px;
+}
+
+
+/* ================================
+   MOBIL
+================================ */
+
+@media (max-width: 768px) {
+
+    .preparation-section {
+        padding: 75px 20px;
+    }
+
+    .preparation-container h2 {
+        font-size: 27px;
+        margin-bottom: 35px;
+    }
+
+    .preparation-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .preparation-card {
+        min-height: 170px;
+        padding: 25px;
+    }
+
+    .preparation-card-title {
+        font-size: 16px;
+    }
+
+    .preparation-modal {
+        padding: 15px;
+    }
+
+    .preparation-modal-content {
+        padding: 65px 25px 30px;
+        max-height: 90vh;
+        max-height: 90dvh;
+    }
+
+    .preparation-modal-content h2 {
+        font-size: 20px;
+    }
+
+}
+
    @media(min-width:901px){
 
     .results-grid{
@@ -2245,6 +2432,124 @@ footer a{
 
 </section>
 
+   <!-- ================================
+     PŘÍPRAVA A PÉČE
+================================ -->
+
+<section class="preparation-section" id="priprava-pece">
+
+    <div class="preparation-container">
+
+        <span class="preparation-label">
+            VŠE, CO POTŘEBUJETE VĚDĚT
+        </span>
+
+        <h2>Příprava a péče</h2>
+
+        <div class="preparation-grid">
+
+            <!-- PŘÍPRAVA -->
+            <button class="preparation-card"
+                    type="button"
+                    data-modal="preparation-modal">
+
+                <span class="preparation-card-title">
+                    Příprava na permanentní make-up
+                </span>
+
+                <span class="preparation-card-bottom">
+                    <span>Pokyny před zákrokem</span>
+                    <span class="preparation-arrow">↗</span>
+                </span>
+
+            </button>
+
+            <!-- PÉČE -->
+            <button class="preparation-card"
+                    type="button"
+                    data-modal="aftercare-modal">
+
+                <span class="preparation-card-title">
+                    Péče o permanentní make-up
+                </span>
+
+                <span class="preparation-card-bottom">
+                    <span>Pokyny po zákroku</span>
+                    <span class="preparation-arrow">↗</span>
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================
+     MODÁLNÍ OKNO – PŘÍPRAVA
+================================ -->
+
+<div class="preparation-modal" id="preparation-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="preparation-modal-title"
+     hidden>
+
+    <div class="preparation-modal-content">
+
+        <button class="preparation-modal-close"
+                type="button"
+                aria-label="Zavřít okno">
+            &times;
+        </button>
+
+        <h2 id="preparation-modal-title">
+            Příprava na permanentní make-up
+        </h2>
+
+        <div class="preparation-modal-body">
+
+            <!-- SEM DOPLNÍME TEXTY OD NATALII -->
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================================
+     MODÁLNÍ OKNO – PÉČE
+================================ -->
+
+<div class="preparation-modal" id="aftercare-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="aftercare-modal-title"
+     hidden>
+
+    <div class="preparation-modal-content">
+
+        <button class="preparation-modal-close"
+                type="button"
+                aria-label="Zavřít okno">
+            &times;
+        </button>
+
+        <h2 id="aftercare-modal-title">
+            Péče o permanentní make-up
+        </h2>
+
+        <div class="preparation-modal-body">
+
+            <!-- SEM DOPLNÍME TEXTY OD NATALII -->
+
+        </div>
+
+    </div>
+
+</div>
+
 
 
 <!-- ===================================================
@@ -3021,6 +3326,127 @@ document.querySelectorAll(".faq-question").forEach(button => {
         });
 
     });
+
+});
+
+   /* ================================
+   PŘÍPRAVA A PÉČE – MODÁLNÍ OKNA
+================================ */
+
+const preparationCards = document.querySelectorAll(".preparation-card");
+const preparationModals = document.querySelectorAll(".preparation-modal");
+
+let activePreparationModal = null;
+let preparationPreviousFocus = null;
+let preparationScrollY = 0;
+let preparationPreviousBodyStyle = {};
+
+function openPreparationModal(modal) {
+
+    preparationPreviousFocus = document.activeElement;
+    preparationScrollY = window.scrollY;
+
+    preparationPreviousBodyStyle = {
+        position: document.body.style.position,
+        top: document.body.style.top,
+        left: document.body.style.left,
+        right: document.body.style.right,
+        width: document.body.style.width
+    };
+
+    modal.hidden = false;
+    activePreparationModal = modal;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${preparationScrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+
+    modal.querySelector(".preparation-modal-close").focus();
+}
+
+function closePreparationModal() {
+
+    if (!activePreparationModal) return;
+
+    activePreparationModal.hidden = true;
+    activePreparationModal = null;
+
+
+    Object.assign(document.body.style, preparationPreviousBodyStyle);
+
+    window.scrollTo({
+        top: preparationScrollY,
+        behavior: "instant"
+    });
+
+    preparationPreviousFocus?.focus({
+        preventScroll: true
+    });
+}
+
+
+preparationCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const modal = document.getElementById(card.dataset.modal);
+
+        if (modal) {
+            openPreparationModal(modal);
+        }
+
+    });
+
+});
+
+
+preparationModals.forEach(modal => {
+
+    modal.querySelector(".preparation-modal-close")
+        .addEventListener("click", closePreparationModal);
+
+    modal.addEventListener("click", event => {
+
+        if (event.target === modal) {
+            closePreparationModal();
+        }
+
+    });
+
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape" && activePreparationModal) {
+        closePreparationModal();
+    }
+
+
+    if (event.key === "Tab" && activePreparationModal) {
+
+        const focusable = [...activePreparationModal.querySelectorAll(
+            'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )].filter(element => !element.disabled);
+
+        if (!focusable.length) {
+            event.preventDefault();
+            return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    }
 
 });
 
