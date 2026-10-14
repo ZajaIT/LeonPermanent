@@ -695,6 +695,7 @@ button{
 }
    .service-pricelist{
     display:none;
+    grid-column:1 / -1;
     width:100%;
     padding:25px 0 10px;
     border-top:1px solid rgba(255,255,255,.15);
@@ -1452,9 +1453,9 @@ footer a{
     }
 
    .service-pricelist{
-        grid-column:2;
-        padding-top:20px;
-    }
+    grid-column:1 / -1;
+    padding-top:20px;
+}
 
     .service-pricelist > div{
         gap:12px;
@@ -2028,6 +2029,7 @@ footer a{
     <button class="price-toggle" type="button" aria-expanded="false">
     Celý ceník <b>+</b>
 </button>
+               </div>
 
 <div class="service-pricelist">
     <div><span>Nová aplikace (včetně opravy po jiném stylistovi)</span><strong>5 000 Kč</strong></div>
@@ -2037,7 +2039,7 @@ footer a{
     <div><span>Zesvětlení permanentního make-upu removerem</span><strong>1 100 Kč</strong></div>
 </div>
 </div>
-</div>
+
 
 
         <div class="service">
