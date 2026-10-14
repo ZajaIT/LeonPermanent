@@ -584,6 +584,31 @@ button{
     grid-row:span 2;
 }
 
+   .results-reviews-link{
+    text-align:center;
+    margin-top:75px;
+}
+
+.results-reviews-link h3{
+    font-family:"Italiana",serif;
+    font-size:clamp(32px,4vw,52px);
+    font-weight:400;
+    margin-bottom:25px;
+}
+
+.results-reviews-link a{
+    display:inline-block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.16em;
+    border-bottom:1px solid var(--black);
+    padding-bottom:6px;
+}
+
+.results-reviews-link a span{
+    margin-left:8px;
+}
+
 
 /* =====================================================
    SLUŽBY
@@ -1690,6 +1715,7 @@ footer a{
             <li><a href="#vysledky">Výsledky</a></li>
             <li><a href="#sluzby">Služby & ceník</a></li>
             <li><a href="#faq">FAQ</a></li>
+            <li><a href="#reference">Reference</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
 
             <li>
@@ -1980,6 +2006,13 @@ footer a{
 </div>
 
         </div>
+
+       <div class="results-reviews-link">
+    <h3>Co o mé práci říkají klientky?</h3>
+    <a href="#reference">
+        PROHLÉDNOUT REFERENCE <span>↗</span>
+    </a>
+</div>
 
     </div>
 
@@ -2343,7 +2376,7 @@ footer a{
      REFERENCE
 =================================================== -->
 
-<section class="reviews">
+<section class="reviews" id="reference">
 
     <div class="container">
 
