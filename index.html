@@ -2068,6 +2068,7 @@ footer a{
     <button class="price-toggle" type="button" aria-expanded="false">
     Celý ceník <b>+</b>
 </button>
+               </div>
 
 <div class="service-pricelist">
     <div><span>Nová aplikace (včetně opravy po jiném stylistovi)</span><strong>5 000 Kč</strong></div>
@@ -2076,8 +2077,6 @@ footer a{
     <div><span>Refresh do 2 let</span><strong>3 500 Kč</strong></div>
 </div>
 </div>
-
-        </div>
 
 
         <div class="service">
@@ -2102,6 +2101,7 @@ footer a{
     <button class="price-toggle" type="button" aria-expanded="false">
     Celý ceník <b>+</b>
 </button>
+               </div>
 
 <div class="service-pricelist">
     <div><span>Meziřasová linka</span><strong>3 200 Kč</strong></div>
@@ -2109,8 +2109,6 @@ footer a{
     <div><span>Refresh meziřasové linky (do 2 let)</span><strong>2 500 Kč</strong></div>
 </div>
 </div>
-
-        </div>
 
 
         <div class="service">
@@ -2852,7 +2850,7 @@ if (reviewsSlider && reviewsTrack) {
 
     button.addEventListener("click", () => {
 
-        const pricelist = button.nextElementSibling;
+        const pricelist = button.closest(".service").querySelector(".service-pricelist");
         const isOpen = pricelist.classList.toggle("open");
 
         button.setAttribute("aria-expanded", isOpen);
