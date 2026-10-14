@@ -969,6 +969,21 @@ button{
     transform:rotate(45deg);
 }
 
+   .faq-answer{
+    display:none;
+    padding:0 35px 25px 0;
+}
+
+.faq-answer p{
+    font-size:13px;
+    line-height:1.9;
+    margin-bottom:12px;
+}
+
+.faq-item:has(.faq-question[aria-expanded="true"]) .faq-answer{
+    display:block;
+}
+
 
 /* =====================================================
    KONTRAINDIKACE
