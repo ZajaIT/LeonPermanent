@@ -497,11 +497,12 @@ button{
 
 .photo-window{
     height:390px;
-    background-image:url("Nataliia1.webp");
+    background-image:url("Nataliia16.webp");
     background-size:cover;
-    background-position:center 45%;
-    background-attachment:fixed;
+    background-position:center top;
+    background-attachment:scroll;
     position:relative;
+    overflow:hidden;
 }
 
 .photo-window::after{
@@ -1682,7 +1683,7 @@ footer a{
     content:"";
     position:absolute;
     inset:-80px 0;
-    background-image:url("Nataliia1.webp");
+    background-image:url("Nataliia16.webp");
     background-size:cover;
     background-position:center;
     transform:translate3d(0, var(--photo-shift, 0px), 0);
@@ -3634,6 +3635,32 @@ document.addEventListener("keydown", event => {
 
 });
 
+</script>
+
+   <script>
+(function () {
+    const photoWindow = document.querySelector('.photo-window');
+    if (!photoWindow) return;
+
+    function updatePhotoScroll() {
+        if (window.innerWidth <= 900) return;
+
+        const rect = photoWindow.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        const progress = Math.max(0, Math.min(1,
+            (viewportHeight - rect.top) /
+            (viewportHeight + rect.height)
+        ));
+
+        photoWindow.style.backgroundPosition =
+            `center ${progress * 100}%`;
+    }
+
+    window.addEventListener('scroll', updatePhotoScroll, { passive: true });
+    window.addEventListener('resize', updatePhotoScroll);
+    updatePhotoScroll();
+})();
 </script>
 
 </body>
