@@ -621,6 +621,29 @@ button{
 .results-reviews-link a span{
     margin-left:8px;
 }
+   /* VÝSLEDKY – TLAČÍTKO DOMLUVIT TERMÍN */
+
+.results-reviews-link .results-contact-btn {
+    display: table;
+    width: fit-content;
+    margin: 35px auto 0;
+    padding: 17px 28px;
+    background: #171717;
+    color: #fff;
+    border: 1px solid #171717;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .3s ease, color .3s ease;
+}
+
+.results-reviews-link .results-contact-btn:hover {
+    background: #fff;
+    color: #171717;
+}
 
 
 /* =====================================================
@@ -2547,8 +2570,13 @@ footer a{
 
        <div class="results-reviews-link">
     <h3>Co o mé práci říkají klientky?</h3>
+
     <a href="#reference">
         PROHLÉDNOUT REFERENCE <span>↗</span>
+    </a>
+
+    <a href="#kontakt" class="results-contact-btn">
+        DOMLUVIT TERMÍN/KONZULTACI
     </a>
 </div>
 
