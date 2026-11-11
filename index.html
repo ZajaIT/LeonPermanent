@@ -1812,13 +1812,12 @@ footer a{
 
 .detail-photo img{
     width:100%;
-    height:calc(100% + 160px);
+    height:100%;
     object-fit:cover;
-    position:absolute;
-    top:-80px;
-    left:0;
-    transform:translate3d(0, var(--detail-shift, 0px), 0);
-    will-change:transform;
+    object-position:center;
+    position:static;
+    transform:none !important;
+    will-change:auto;
 }
 
     .detail-copy{
